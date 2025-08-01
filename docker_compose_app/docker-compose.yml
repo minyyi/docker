@@ -1,0 +1,11 @@
+version: "3"
+services:
+    redis-server:
+        image: "redis"
+    node-app:
+        # 노드는 도커파일 생성해서 빌드라고 작성
+        build: .
+        ports:
+            - "5000:8082"
+        depends_on:
+            - redis-server
